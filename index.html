@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#14171e" />
+    <meta
+      name="description"
+      content="Sunset City — a small GTA-inspired open-world driving prototype built with Three.js and Rapier."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Sunset City — Open World Prototype</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas" aria-label="Sunset City game viewport"></canvas>
+
+      <div class="screen-fx" aria-hidden="true">
+        <div class="vignette"></div>
+        <div class="grain"></div>
+        <div class="damage-flash" id="damage-flash"></div>
+      </div>
+
+      <div id="hud" class="hud is-hidden">
+        <div class="hud-top">
+          <section class="mission-card" id="mission-card" aria-live="polite">
+            <div class="mission-kicker"><span class="mission-pulse"></span> MISSION</div>
+            <h2 id="mission-title">Repo Run</h2>
+            <p id="mission-objective">Find the contact in the park</p>
+            <div class="mission-meta">
+              <span id="mission-distance">— m</span>
+              <span id="mission-reward">$1,500</span>
+            </div>
+          </section>
+
+          <div class="status-stack">
+            <div class="brand" aria-hidden="true">SUNSET<span>CITY</span></div>
+            <div class="money" id="money-display">
+              <span class="money-symbol">$</span><strong id="money-value">500</strong>
+            </div>
+            <div class="health">
+              <div class="health-head"><span>HEALTH</span><span id="health-value">100</span></div>
+              <div class="health-track"><div id="health-fill" class="health-fill"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-bottom">
+          <div class="minimap-shell">
+            <canvas id="minimap" width="384" height="384"></canvas>
+            <div class="minimap-ring" aria-hidden="true"></div>
+            <div class="minimap-zone" id="minimap-zone">MIDTOWN</div>
+          </div>
+
+          <div class="help" id="controls-hint">
+            <span><kbd>W A S D</kbd> MOVE</span>
+            <span><kbd>SHIFT</kbd> RUN</span>
+            <span><kbd>SPACE</kbd> JUMP</span>
+            <span><kbd>E</kbd> VEHICLE</span>
+          </div>
+
+          <div class="speedo is-hidden" id="speedo">
+            <div class="speedo-main">
+              <strong id="speed-value">0</strong>
+              <span>KM/H</span>
+            </div>
+            <div class="speedo-bar"><div id="speed-fill"></div></div>
+            <div class="speedo-gear" id="gear-value">D</div>
+          </div>
+        </div>
+
+        <div id="prompt" class="prompt is-hidden">
+          <kbd id="prompt-key">E</kbd>
+          <span id="prompt-label">Enter vehicle</span>
+        </div>
+
+        <div id="toast" class="toast" role="status"></div>
+
+        <div id="mission-banner" class="mission-banner is-hidden">
+          <div class="banner-kicker">MISSION PASSED</div>
+          <div class="banner-title" id="banner-title">Repo Run</div>
+          <div class="banner-reward" id="banner-reward">+$1,500</div>
+        </div>
+
+        <div id="wasted" class="wasted is-hidden"><span>WASTED</span></div>
+      </div>
+
+      <div id="menu" class="menu">
+        <div class="menu-backdrop" aria-hidden="true"></div>
+        <div class="menu-panel">
+          <div class="menu-eyebrow">AN OPEN-WORLD MICRO SANDBOX</div>
+          <h1 class="menu-title">SUNSET<br /><span>CITY</span></h1>
+          <p class="menu-copy" id="menu-copy">
+            One car. One last job. The sun is already going down. Take the wheel and see how far you get
+            before midnight.
+          </p>
+
+          <div class="controls" aria-label="Controls">
+            <div><kbd>W A S D</kbd><span>Move / Drive</span></div>
+            <div><kbd>Mouse</kbd><span>Look around</span></div>
+            <div><kbd>Shift</kbd><span>Sprint / Boost</span></div>
+            <div><kbd>Space</kbd><span>Jump / Handbrake</span></div>
+            <div><kbd>E</kbd><span>Enter / Exit car</span></div>
+            <div><kbd>R</kbd><span>Reset vehicle</span></div>
+          </div>
+
+          <div class="menu-actions">
+            <button id="start-button" type="button" disabled>BOOTING ENGINE</button>
+            <div class="boot-status" id="boot-status">Warming up the city…</div>
+          </div>
+
+          <div class="menu-foot">PROCEDURAL CITY · RAPIER PHYSICS · THREE.JS</div>
+        </div>
+        <div class="menu-scanline" aria-hidden="true"></div>
+      </div>
+
+      <div id="error-screen" class="error-screen is-hidden" role="alert">
+        <div class="error-panel">
+          <div class="error-code">SYSTEM FAILURE</div>
+          <h2>Could not start the city</h2>
+          <p id="error-message">An unknown error occurred.</p>
+          <pre id="error-detail"></pre>
+          <button id="reload-button" type="button">RELOAD</button>
+        </div>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="noscript">Sunset City needs JavaScript and WebGL to run.</div>
+    </noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.log
+.vite/
+.DS_Store
+/screenshots/
+vout.txt
+verr.txt
+smoke-out.txt
+smoke-err.txt
+probe-out.txt
+probe-err.txt
+build.log
+final-*.txt
+preview-*.txt
+visual-*.txt
+lock-*.txt

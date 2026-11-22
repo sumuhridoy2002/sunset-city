@@ -1,0 +1,38 @@
+{
+  "name": "sunset-city",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A GTA-inspired 3D open-world browser prototype built with Three.js, Rapier physics and Vite.",
+  "homepage": "https://sumuhridoy2002.github.io/sunset-city/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumuhridoy2002/sunset-city.git"
+  },
+  "keywords": [
+    "threejs",
+    "rapier",
+    "vite",
+    "webgl",
+    "browser-game",
+    "open-world",
+    "gta"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "smoke": "node scripts/smoke-test.mjs"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.18.1",
+    "vite": "^8.3.8"
+  }
+}
